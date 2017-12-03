@@ -1,0 +1,4 @@
+"query": { acmdlTitle:(+real +time +social +media) AND (prediction predict detection detect) }
+
+"filter": {"publicationYear":{ "gte":2012, "lte":2017 }},
+{owners.owner=HOSTED}
