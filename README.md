@@ -3,6 +3,8 @@
 Richard Wen  
 rwen@ryerson.ca  
 
+* [PDF](https://github.com/rrwen/assign-rmcs-proposal/blob/master/wen2017_rtgeosocialevent.pdf)
+
 Assignment for Research Methods in Computer Science course at Ryerson University.
 
 [![Build Status](https://travis-ci.org/rrwen/assign-rmcs-proposal.svg?branch=master)](https://travis-ci.org/rrwen/assign-rmcs-proposal)
