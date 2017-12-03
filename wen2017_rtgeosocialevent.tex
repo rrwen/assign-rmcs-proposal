@@ -2,7 +2,7 @@
 %% rwen@ryerson.ca
 
 
-\documentclass[letterpaper,12pt]{article}
+\documentclass[letterpaper,12pt,titlepage]{article}
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
 
@@ -11,18 +11,28 @@
 
 
 \input{tex/packages}
-
+\usepackage[page,toc,titletoc,title]{appendix}
 
 % *** DOCUMENT ***
+
 
 \begin{document}
 
 \input{tex/title}
+\tableofcontents
+
+\newpage
+
 \input{tex/body}
+
+\newpage
+
 \input{tex/appendices}
 
-\bibliographystyle{apa}
+\newpage
+
 \bibliography{tex/references}
+\bibliographystyle{apa}
 
 \end{document}
 
