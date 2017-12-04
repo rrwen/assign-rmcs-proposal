@@ -16,10 +16,8 @@ The remaining sections are organized as follows:
 \begin{itemize}
 	\item \textbf{Section \ref{objectives}} details the objectives of the proposed research
 	\item \textbf{Section \ref{literature-review}} provides a literature review of current research
-	\item \textbf{Section \ref{approach}} details the proposed approach to satisfy the objectives
-	\item \textbf{Section \ref{recent-progress}} details the recent progress based on the approaches and objectives
-	\item \textbf{Section \ref{impact}} discusses the impact of the proposed research
-	\item \textbf{Section \ref{conclusion}} provides concluding summaries and remarks
+	\item \textbf{Section \ref{approach}} details the proposed approach to satisfy the objectives and recent progress
+	\item \textbf{Section \ref{conclusion-and-impact}} discusses the impact of the proposed research and provides concluding summaries and remarks
 \end{itemize}
 
 \section{Objectives} \label{objectives}
@@ -85,15 +83,15 @@ This section provides a literature review to provide background knowledge on cur
 
 \subsection{Event Detection and Prediction} \label{event-detection}
 
-\cite{Middleton:2014} suggested the use re-tweets from Twitter for credibility measures, and context filters to narrow natural disaster events to specific classes such as positive, negative, or urgent reports with natural language text. \cite{Hazra:2015} built a web application with event sockets that extracted news-worthy Twitter events, which can be personalized to particular interests, but machine learning may be needed improve the user recommendation system, and historical events were not considered. \cite{Enoki:2015} used in-memory stores for real-time topic querying given social diffusion of popular Twitter messages. \cite{Abrol:2015} used cloud computing to profile and geo-locate millions of users for social behavioural patterns,  changes, and events in real-time, but required improvements to handle simultaneously emerging new classifications. A majority of the methods presented in the literature focused on geosocial media event detection methods, but few mentioned or considered event prediction in real-time. \cite{Lee:2017} used machine learning methods to extract important word features from social media data to predict flu activity 2 to 3 weeks ahead in real-time.
+ Event detection and prediction methods using geosocial media data are focused on statistical, machine learning, clustering, and network based approaches. \cite{Alvanaki:2012} use sliding time windows to compute statistics about social media tags in order to detect unusual correlation shifts that are probable emergent topic events. \cite{Khabiri:2012} used closeness measures, term selection, and dynamic sliding windows to annotate social media messages with informative and more abstract terms, however the techniques used were infeasible for real-time annotation when smoothing was implemented in the sliding windows. \cite{Sofean:2012} used machine learning methods to classify medical-related tweets on Twitter based on world topics relative to diseases and symptoms. \cite{Middleton:2014} suggested the use re-tweets from Twitter for credibility measures, and context filters to narrow natural disaster events to specific classes such as positive, negative, or urgent reports with natural language text. \cite{Hazra:2015} built a web application with event sockets that extracted news-worthy Twitter events, which can be personalized to particular interests, but machine learning may be needed improve the user recommendation system, and historical events were not considered. \cite{Enoki:2015} used in-memory stores for real-time topic querying given social diffusion of popular Twitter messages. \cite{Abrol:2015} used cloud computing to profile and geo-locate millions of users for social behavioural patterns, changes, and events in real-time, but required improvements to handle simultaneously emerging new classifications. \cite{Buntain:2015} used social media features such as location and metadata to evaluate the credibility of detected events. \cite{Buntain:2016} used a technique which identified rapid increases in social media posts to detect events and improve the performance of other real-time tracking systems. \cite{Lee:2017} used machine learning methods to extract important word features from social media data to predict flu activity 2 to 3 weeks ahead in real-time. \cite{Li:2017} used semantic and similarity clustering to identify old and new geosocial media events with the same meaning in real-time. \cite{Tsikerdekis:2017} compared several optimization techniques to reduce the volume or velocity of social media data for identity deception detection, and concluded that data velocity is a major factor in considering detection methods. A majority of the methods presented in the literature focused on geosocial media event detection methods, but few mentioned or considered event prediction in real-time.
 
 \subsection{Visualization} \label{visualization}
 
-\cite{Calderon:2014} designed streaming graphs to visualize real-time Twitter sentiments for emergency management, where a study on 21 randomy selected participants concluded that visualization of real-time social media data required interactive interfaces, geo-location context, and human cognition and reasoning theory. \cite{Middleton:2014} mapped real-time social media data using textual geo-parsing, spatial clustering, and a combination of various data sources, such as Volunteered Geographic Information (VGI), online mapping services, and gazetteers, to visually display areas of potential events.  \cite{Tsirakis:2015} created a web-based dashboard application that displays the current trending events, influential users, and popular topics in real-time, but had considerations with the scalability of algorithms. and multiple data source and language integration.  \cite{Kumar:2016} used nodes to represent social media users for creating visual networks of Twitter users to analyze and detect the strength of social relationships among users. The majority of the visualization approaches proposed in the literature involved interactive, web-based, interfaces that transformed lower level details of model results into higher level abstract visuals to produce human-understandable information.
+After detecting or predicting geosocial media events, the model outputs must be visualized into human-understandable information to appropriately act and respond to each event. \cite{Zubiaga:2012} used summarization techniques to reduce the large volume of Twitter data to provide a higher level  textual abstraction of social media events and topics. \cite{Calderon:2014} designed streaming graphs to visualize real-time Twitter sentiments for emergency management, where a study on 21 randomy selected participants concluded that visualization of real-time social media data required interactive interfaces, geo-location context, and human cognition and reasoning theory. \cite{Middleton:2014} mapped real-time social media data using textual geo-parsing, spatial clustering, and a combination of various data sources, such as Volunteered Geographic Information (VGI), online mapping services, and gazetteers, to visually display areas of potential events. \cite{Xia:2014} developed a web-based visualization, consisting of a web map with complementary photos and graphs, for multiple social media sources such as Instagram, Twitter, and Foursquare to provide real-time events and news trends for a city. \cite{Tsirakis:2015} created a web-based dashboard application that displays the current trending events, influential users, and popular topics in real-time, but had considerations with the scalability of algorithms, multiple data sources, and language integrations. \cite{Shah:2015} used background knowledge from Wikipedia to summarize social media events relative to photos and videos in real-time. \cite{Kumar:2016} used nodes to represent social media users for creating visual networks of Twitter users to analyze and detect the strength of social relationships among users. \cite{Wang:2017} used natural language processing techniques to detect traffic incidents for a real-time traffic alerts and warnings system. The majority of the visualization approaches proposed in the literature involved interactive, web-based, interfaces that transformed lower level details of model results into higher level abstract visuals to produce human-understandable information.
 
 \subsection{Applications} \label{applications}
 
-\cite{Middleton:2014} used geosocial media event detection to obtain real-time crisis maps and reports for hurricanes and earthquakes in disaster response. \cite{Bodnar:2017} used social media data together with electrical consumption data to discover relevant energy-related topics and to gain real-time insight on energy consumption of users in urban areas. \cite{Lee:2017} used geosocial media data with historical diseases datasets to predict future influenza events in real-time.
+Event detection and prediction methods are widely used for real-world applications related to the categories of disaster, disease, travel, and the environment. Figure \ref{figure:papers_applications} shows the number of papers in each category from the literature. \cite{Sofean:2012} created a real-time surveillance architecture to detect disease-related social media postings on Twitter. \cite{Riga:2014} used machine learning models to cluster Twitter tweets for urban air quality monitoring and soft sensing. \cite{Middleton:2014} used geosocial media event detection to obtain real-time crisis maps and reports for hurricanes and earthquakes in disaster response. \cite{Semwal:2015} used machine learning techniques to detect and predict daily co-occurring traffic event issues with social media data. \cite{Bodnar:2017} used social media data together with electrical consumption data to discover relevant energy-related topics and to gain real-time insight on energy consumption of users in urban areas. \cite{Lee:2017} used geosocial media data with historical diseases datasets to predict future influenza events in real-time. The majority of the papers in the literature conducted experiments and tests in disaster applications, followed by disease, travel, and environment in order.
 
 \begin{figure}[!htb]
 \begin{center}
@@ -121,13 +119,13 @@ This section provides a literature review to provide background knowledge on cur
 
 \section{Approach} \label{approach}
 
-The
+This section provides details on the methods for  the proposed approach and milestones to achieve the research objectives. Recent progress toward the objectives is also mentioned in this section.
 
+\subsection{Methods} \label{methods}
 
-% *** RECENT PROGRESS ***
+x
 
-
-\section{Recent Progress} \label{recent-progress}
+\subsection{Recent Progress} \label{recent-progress}
 
 Recent progress involved the partial identification of several framework components and development of a small software package. The identified framework and software components are provided in Table \ref{table:frameworkcomponents} and \ref{table:softwarecomponents} respectively. A small software package was developed for Node.js \citep{Nodejs:2017} named \textit{"twitter2pg"}  \citep{Wen:2017} to conveniently extract real-time Twitter data into a relational PostgreSQL database \citep{Postgresql:2017}. The package has been downloaded 259 times as of December 2, 2017 after approximately a month of release, and consists of documentation, unit tests, and automatic Linux builds for continuous tests every month.
 
@@ -176,18 +174,10 @@ Documentation Software & HTML, Markdown\\
 \end{table}
 
 
-% *** IMPACT ***
+% *** CONCLUSION AND IMPACT ***
 
 
-\section{Impact} \label{impact}
+\section{Conclusion and Impact} \label{conclusion-and-impact}
 
-The impacts of a framework and software for geosocial media event detection and prediction are related to approach consistency improvements, standardized solutions, and promotion of transparency in social media research.
-
-
-% *** CONCLUSION ***
-
-
-\section{Conclusion} \label{conclusion}
-
-This proposal presented a potential framework and accompanying software for geosocial media event detection and prediction based on current research. The framework was proposed to provide a more consistent approach to working with  geosocial media data, and to more easily allow non-experts to have a standard solution for a wide variety of applications such as traffic management, disease control, and disaster response. 
+This proposal presented a potential framework and accompanying software for geosocial media event detection and prediction based on current research. The framework was proposed to provide a more consistent approach to working with  geosocial media data, and to more easily allow non-experts to have a standard solution for a wide variety of applications such as traffic management, disease control, and disaster response. The impacts of a framework and software for geosocial media event detection and prediction are related to approach consistency improvements, standardized solutions, and promotion of transparency in social media research.
 
