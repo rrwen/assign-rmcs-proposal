@@ -63,30 +63,57 @@ The software objective requires that the following open source components be ide
 
 \section{Literature Review} \label{literature-review}
 
-This section provides a literature review to provide background knowledge on current research related to the topic of \textit{"real-time geosocial media event detection and prediction"}. The paper selection process involved identifying reputable digital libraries using the Journal Impact Factor (JIF) measure \citep{Garfield:2006b}, followed by using automatic search queries to produce an initial list of potential papers. The potential papers were then further filtered by manual selection criteria to produce a list of selected papers for reviewing. Appendix \ref{appendix:literature-review-methods} provides details of the literature methods seen in Figure \ref{figure:litreview_process}.
+This section provides a literature review to provide background knowledge on current research related to the topic of \textit{"real-time geosocial media event detection and prediction"}. Papers were selected from the Association for Computing Machinery (ACM) and Institute of Electrical and Electronics Engineers (IEEE) Xplore digital libraries. Figure \ref{figure:papers_yearly} shows  the distribution of selected papers for review by year. Appendix \ref{appendix:literature-review-methods} provides details of the methods used for paper selection and review.
 
 \begin{figure}[!htb]
-	\centering
-	\includegraphics[width=6in]{litreview_process}
-	\caption{\textbf{Literature Review Methods.}}
-	\label{figure:litreview_process}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+	ylabel=Papers,
+	xlabel=Year,
+	ybar interval=1,
+	xticklabel style={/pgf/number format/1000 sep=,}
+	]
+	\addplot[color=gray, fill=black] table[x=year, y=papers] {data/papers_yearly.tsv};
+	\legend{}
+\end{axis}
+\end{tikzpicture}
+\caption{\textbf{ACM and IEEE Published Papers Found from 2012 to December 2, 2017.} A total of 22 papers were reviewed. Black bars represent the selected papers filtered from the potential papers using the literature review methods described in Appendix \ref{appendix:literature-review-methods}.}
+\label{figure:papers_yearly}
+\end{center}
 \end{figure}
 
-\subsection{Event Detection} \label{event-detection}
+\subsection{Event Detection and Prediction} \label{event-detection}
 
-x
-
-\subsection{Event Prediction} \label{event-prediction}
-
-x
+\cite{Middleton:2014} suggested the use re-tweets from Twitter for credibility measures, and context filters to narrow natural disaster events to specific classes such as positive, negative, or urgent reports with natural language text. \cite{Hazra:2015} built a web application with event sockets that extracted news-worthy Twitter events, which can be personalized to particular interests, but machine learning may be needed improve the user recommendation system, and historical events were not considered. \cite{Enoki:2015} used in-memory stores for real-time topic querying given social diffusion of popular Twitter messages. \cite{Abrol:2015} used cloud computing to profile and geo-locate millions of users for social behavioural patterns,  changes, and events in real-time, but required improvements to handle simultaneously emerging new classifications. A majority of the methods presented in the literature focused on geosocial media event detection methods, but few mentioned or considered event prediction in real-time. \cite{Lee:2017} used machine learning methods to extract important word features from social media data to predict flu activity 2 to 3 weeks ahead in real-time.
 
 \subsection{Visualization} \label{visualization}
 
-x
+\cite{Calderon:2014} designed streaming graphs to visualize real-time Twitter sentiments for emergency management, where a study on 21 randomy selected participants concluded that visualization of real-time social media data required interactive interfaces, geo-location context, and human cognition and reasoning theory. \cite{Middleton:2014} mapped real-time social media data using textual geo-parsing, spatial clustering, and a combination of various data sources, such as Volunteered Geographic Information (VGI), online mapping services, and gazetteers, to visually display areas of potential events.  \cite{Tsirakis:2015} created a web-based dashboard application that displays the current trending events, influential users, and popular topics in real-time, but had considerations with the scalability of algorithms. and multiple data source and language integration.  \cite{Kumar:2016} used nodes to represent social media users for creating visual networks of Twitter users to analyze and detect the strength of social relationships among users. The majority of the visualization approaches proposed in the literature involved interactive, web-based, interfaces that transformed lower level details of model results into higher level abstract visuals to produce human-understandable information.
 
 \subsection{Applications} \label{applications}
 
-x
+\cite{Middleton:2014} used geosocial media event detection to obtain real-time crisis maps and reports for hurricanes and earthquakes in disaster response. \cite{Bodnar:2017} used social media data together with electrical consumption data to discover relevant energy-related topics and to gain real-time insight on energy consumption of users in urban areas. \cite{Lee:2017} used geosocial media data with historical diseases datasets to predict future influenza events in real-time.
+
+\begin{figure}[!htb]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+	xbar interval=1,
+	xlabel=Papers,
+	ylabel=Application,
+	xtick={0,1,2,3,4,5,6,7},
+	ytick=data,
+	yticklabels={Environment, Travel, Disease, Disaster}
+	]
+	\addplot[color=gray, fill=black] table[y=code, x=papers] {data/papers_applications.tsv};
+	\legend{}
+\end{axis}
+\end{tikzpicture}
+\caption{\textbf{Applications in ACM and IEEE Published Papers from 2012 to December 2, 2017.} Disease refers to human health-related disease spread events. Disaster refers to natural disasters and human-related emergencies. Environment refers to environmental-related applications such as air pollution and urban energy utility. Travel refers to vehicular traffic and transportation related applications. Black bars represent the number of papers in each application category, where papers were selected using the literature review methods in Appendix \ref{appendix:literature-review-methods}.}
+\label{figure:papers_applications}
+\end{center}
+\end{figure}
 
 
 % *** APPROACH ***
@@ -104,34 +131,47 @@ The
 
 Recent progress involved the partial identification of several framework components and development of a small software package. The identified framework and software components are provided in Table \ref{table:frameworkcomponents} and \ref{table:softwarecomponents} respectively. A small software package was developed for Node.js \citep{Nodejs:2017} named \textit{"twitter2pg"}  \citep{Wen:2017} to conveniently extract real-time Twitter data into a relational PostgreSQL database \citep{Postgresql:2017}. The package has been downloaded 259 times as of December 2, 2017 after approximately a month of release, and consists of documentation, unit tests, and automatic Linux builds for continuous tests every month.
 
-\begin{table}
+\begin{table}[!htb]
 \centering
 \caption{\textbf{Identified Framework Objective Components.}}
 \label{table:frameworkcomponents}
-\begin{tabular}{|p{2in}|p{4in}|}
+\begin{tabular}{|p{2.5in}|p{3.5in}|}
 \hline
-\textbf{Component} & \textbf{Identified} \\ \hline
-Data Sources & Twitter Streaming API, Programmable Web \\ \hline
-Data Structures & Unstructured (JSON), Location Points, Time Stamps \\ \hline
-Event Detection Methods & Frequency, Sliding Window, Normalization, Clustering, Sampling, Graphs, Machine Learning \\ \hline
-Output & Textual Summary, Webmap, Wordcloud \\ \hline
-Use Cases & Influenza, Earthquake, Psychosocial, Energy, Traffic, Air Quality \\ \hline
+\textbf{Component} & \textbf{Identified}\\
+\hline
+Data Sources & Twitter Streaming API, Programmable Web\\
+\hline
+Data Structures & Unstructured (JSON), Location Points, Time Stamp \\
+\hline
+Event Detection Methods & Frequency, Sliding Window, Normalization, Clustering, Sampling, Graphs, Machine Learning\\
+\hline
+Output & Textual Summary, Webmap, Wordcloud\\
+\hline
+Use Cases & Influenza, Earthquake, Psychosocial, Energy, Traffic, Air Quality\\
+\hline
 \end{tabular}
 \end{table}
 
-\begin{table}
+\begin{table}[!htb]
 \centering
 \caption{\textbf{Identified Software Objective Components.}}
 \label{table:softwarecomponents}
-\begin{tabular}{|p{2in}|p{4in}|}
+\begin{tabular}{|p{2.5in}|p{3.5in}|}
 \hline
-\textbf{Component} & \textbf{Identified} \\ \hline
-Databases & PostgreSQL, MongoDB, MySQL, Hbase, Cassandra, Accumulo, GeoMesa \\ \hline
-Event Detection and Prediction Software & Massive Online Analysis (MOA), scikit-learn, Apache Spark/Kafka \\ \hline
-Information Software & Leaflet, Carto, D3.js \\ \hline
-Online Platform & Github, PyPi, npm \\ \hline
-Testing Software & travis Continuous Integration (CI), Docker \\ \hline
-Documentation Software & HTML, Markdown \\ \hline
+\textbf{Component} & \textbf{Identified}\\
+\hline
+Databases & PostgreSQL, MongoDB, MySQL, Hbase, Cassandra, Accumulo, GeoMesa\\
+\hline
+Event Detection and Prediction Software & Massive Online Analysis (MOA), scikit-learn, Apache Spark, Apache Kafka\\
+\hline
+Information Software & Leaflet, Carto, D3.js\\
+\hline
+Online Platform & Github, PyPi, npm\\
+\hline
+Testing Software & travis Continuous Integration (CI), Docker\\
+\hline
+Documentation Software & HTML, Markdown\\
+\hline
 \end{tabular}
 \end{table}
 
@@ -141,7 +181,7 @@ Documentation Software & HTML, Markdown \\ \hline
 
 \section{Impact} \label{impact}
 
-x
+The impacts of a framework and software for geosocial media event detection and prediction are related to approach consistency improvements, standardized solutions, and promotion of transparency in social media research.
 
 
 % *** CONCLUSION ***
@@ -149,5 +189,5 @@ x
 
 \section{Conclusion} \label{conclusion}
 
-x
+This proposal presented a potential framework and accompanying software for geosocial media event detection and prediction based on current research. The framework was proposed to provide a more consistent approach to working with  geosocial media data, and to more easily allow non-experts to have a standard solution for a wide variety of applications such as traffic management, disease control, and disaster response. 
 
