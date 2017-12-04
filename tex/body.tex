@@ -31,29 +31,29 @@ This section provides details objectives of this proposal. The main objective is
 
 \subsection{Framework} \label{framework}
 
-The framework objective requires that the following components be identified and developed:
+The framework objective requires that the following six components be identified and developed:
 
-\begin{itemize}
+\begin{enumerate}
 	\item \textbf{Data Sources}: Popular geosocial media platforms and data sources
 	\item \textbf{Data Structures}: Geosocial media data structures
 	\item \textbf{Event Detection Methods}: Common event detection methods and patterns
 	\item \textbf{Event Prediction Methods}: Common event prediction methods and patterns
 	\item \textbf{Output}: Resulting human-readable output information
 	\item \textbf{Use Cases}: Common applications of geosocial media event detection and prediction
-\end{itemize}
+\end{enumerate}
 
 \subsection{Software} \label{software}
 
-The software objective requires that the following open source components be identified and developed:
+The software objective requires that the following six open source components be identified and developed:
 
-\begin{itemize}
+\begin{enumerate}
 	\item \textbf{Databases}: Popular databases used for geosocial media data
 	\item \textbf{Event Detection and Prediction Software}: Libraries or packages for event detection and prediction algorithms and models
 	\item \textbf{Information Software}: Libraries or packages for displaying and extracting information from model outputs
 	\item \textbf{Online Platform}: Online websites to host and distribute software
 	\item \textbf{Testing Software}: Libraries or packages to conduct standard unit tests
 	\item \textbf{Documentation Software}: Libraries or packages to document software for a wide audience
-\end{itemize}
+\end{enumerate}
 
 
 % *** LITERATURE REVIEW ***
@@ -123,7 +123,21 @@ This section provides details on the methods for  the proposed approach and mile
 
 \subsection{Methods} \label{methods}
 
-x
+The proposed methods to achieve the research objectives involve first developing a geosocial media event detection and prediction framework, followed by the development of openly-accessible software based on that framework to create real-time systems in practice. In order to develop the framework, commonly used data, techniques, and methods for event detection and prediction will be further reviewed using research literature to satisfy the six components from the framework objectives in Section \ref{framework}. Figure \ref{figure:framework} shows the dependency between the different framework components. The data sources will determine the data structures, which will determine the event prediction and detection methods. The event prediction and detection methods will then determine the model output results and the potential use cases and applications. The framework will be the abstract representation used to develop the practical geosocial media event detection and prediction software for building real-time systems. The software development will consist of selecting open source software libraries and packages to satisfy each of the framework's identified components to create a modular system that can adapt to different real-world applications and geosocial media sources. The proposed approach will be to identify each framework component in dependent order starting from the data sources component. After identifying a component, software will be developed for that particular component individually, which enables it to work without reliance on other components. Connecting software will then be developed between each component to enable interoperability. The software development approach is shown in Figure \ref{figure:software}.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=6in]{framework}
+	\caption{\textbf{Framework Components Dependency.} The framework seeks to group components in the multiple detection and prediction methods reviewed in the literature to form a standardized and more consistent approach that is flexible, adaptable, and comparable among different implementations.}
+	\label{figure:framework}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=6in]{software}
+	\caption{\textbf{Software Components Development Approach.} Each number represents an ordered step and milestone in the software development approach that will be conducted after the identification of the relevant framework component. The connecting software is used to integrate multiple components together, but each component is tested and documented individually first as smaller parts to a whole.}
+	\label{figure:software}
+\end{figure}
 
 \subsection{Recent Progress} \label{recent-progress}
 
@@ -179,5 +193,5 @@ Documentation Software & HTML, Markdown\\
 
 \section{Conclusion and Impact} \label{conclusion-and-impact}
 
-This proposal presented a potential framework and accompanying software for geosocial media event detection and prediction based on current research. The framework was proposed to provide a more consistent approach to working with  geosocial media data, and to more easily allow non-experts to have a standard solution for a wide variety of applications such as traffic management, disease control, and disaster response. The impacts of a framework and software for geosocial media event detection and prediction are related to approach consistency improvements, standardized solutions, and promotion of transparency in social media research.
+This proposal presented a potential framework and accompanying software for geosocial media event detection and prediction based on current research. The framework was proposed to provide a more consistent approach to working with geosocial media data, and to more easily allow non-experts to have a standard solution for a wide variety of applications such as traffic management, disease control, and disaster response. The impacts of a framework and software for geosocial media event detection and prediction are related to approach consistency improvements, standardized solutions, and transparency in geosocial media event-based systems research. The proposed framework seeks to standardize and reduce the inconsistency of approaches in different areas of geosocial media event detection and prediction applications. It provides a common approach that guides the user in constructing a real-time system for event detection and prediction, and allows for comparability between different implementations. The proposed open source software provides an openly-accessible and transparent solution to creating real-time event detection systems in practice. It will adequately address common issue in developing real-time event detection and prediction systems with geosocial media data, and enable practitioners to more easily create systems for particular use cases in the real-world. The major contributions of the proposed research is then a flexible and adaptable framework for real-time geosocial event detection and prediction, followed by accompanying software for use in practice.
 
